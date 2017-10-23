@@ -10,7 +10,14 @@ export class DishService {
   getDishes(): Dish[] {
     return DISHES;
   }
-//methode, return array of dishes
+//method, return array of dishes
 
+getDish(id: number): Dish {
+  return DISHES.filter((dish) => (dish.id === id))[0];
+}
+
+getFeaturedDish(): Dish {
+  return DISHES.filter((dish) => dish.featured)[0];
+}
 
 }
