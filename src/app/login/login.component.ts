@@ -10,6 +10,9 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 export class LoginComponent implements OnInit {
   
     user = {remember: false};
+
+    //variable just, no type
+    //define a propiety and set as false
   
     constructor(public dialogRef: MdDialogRef<LoginComponent>) { }
   
@@ -21,4 +24,6 @@ export class LoginComponent implements OnInit {
       this.dialogRef.close();
     }
   
+  //trigger when the user submits form
+
   }
