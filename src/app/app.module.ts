@@ -9,6 +9,8 @@ import { MdButtonModule, MdCheckboxModule, MdDatepickerModule,
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import 'hammerjs';
 
 
@@ -50,7 +52,8 @@ import { LoginComponent } from './login/login.component';
     MdCardModule, MdIconModule, MdProgressSpinnerModule, MdDialogModule,
     FlexLayoutModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    ReactiveFormsModule 
     
   ],
   providers: [DishService,
