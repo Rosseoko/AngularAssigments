@@ -16,10 +16,10 @@ export class AboutComponent implements OnInit {
 
   selectedLeader: Leader;
 
-  constructor(private LeaderService: LeaderService) { }
+  constructor(private leaderService: LeaderService) { }
   
   ngOnInit() {
-    this.leaders = this.LeaderService.getLeaders();
+    this.leaderService.getLeaders().then(leaders => this.leaders = leaders);
   }
 
   onSelect(leader: Leader){
