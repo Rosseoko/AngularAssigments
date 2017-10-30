@@ -27,13 +27,15 @@ export class ContactComponent implements OnInit {
 
       // variable, use form builder which provides .group  
       this.feedbackForm = this.fb.group({
-        firstname: '',
-        lastname: '',
-        telnum: 0,
-        email: '',
+        firstname: ['', Validators.required ],
+        lastname: ['', Validators.required ],
+        telnum: [0, Validators.required ],
+        email: ['', Validators.required ],
         agree: false,
         contacttype: 'None',
         message: ''
+      //added form validators
+
       });
     }
   
@@ -44,7 +46,16 @@ export class ContactComponent implements OnInit {
       //show it is submitted correclty
       console.log(this.feedback);
       //borra, lo regresa a su estado normal
-      this.feedbackForm.reset();
+      this.feedbackForm.reset({
+        firstname: '',
+        lastname: '',
+        telnum: '',
+        email: '',
+        agree: false,
+        contacttype: 'None',
+        message: ''
+      });
+      // all parameters of the reset methode
     }
   
   }
