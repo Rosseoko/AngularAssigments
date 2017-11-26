@@ -22,6 +22,9 @@ export class ContactComponent implements OnInit {
     }
   
 
+
+    
+
     formErrors = {
       'firstname': '',
       'lastname': '',
@@ -72,9 +75,6 @@ export class ContactComponent implements OnInit {
 
     }
   
-
-
-
 
     onValueChanged(data?: any) {
       if (!this.feedbackForm) { return; }
