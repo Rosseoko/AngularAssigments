@@ -14,6 +14,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
 
+
 @Injectable()
 export class DishService {
 
@@ -25,23 +26,28 @@ export class DishService {
 
   getDishes(): Observable<Dish[]> {
     return this.http.get(baseURL + 'dishes')
-                    .map(res => { return this.ProcessHTTPMsgService.extractData(res); });
+                    .map(res => { return this.ProcessHTTPMsgService.extractData(res); })
+                    .catch(error => { return this.ProcessHTTPMsgService.handleError(error); });
   }
 
   getDish(id: number): Observable<Dish> {
     return  this.http.get(baseURL + 'dishes/'+ id)
-                    .map(res => { return this.ProcessHTTPMsgService.extractData(res); });
+                    .map(res => { return this.ProcessHTTPMsgService.extractData(res); })
+                    .catch(error => { return this.ProcessHTTPMsgService.handleError(error); });
   }
 
   getFeaturedDish(): Observable<Dish> {
     return this.http.get(baseURL + 'dishes?featured=true')
-                    .map(res => { return this.ProcessHTTPMsgService.extractData(res)[0]; });
+                    .map(res => { return this.ProcessHTTPMsgService.extractData(res)[0]; })
+                    .catch(error => { return this.ProcessHTTPMsgService.handleError(error); });
   }
 
-  getDishIds(): Observable<number[]> {
+  getDishIds() : Observable<number[]> {
     return this.getDishes()
-      .map(dishes => { return dishes.map(dish => dish.id) });
+      .map(dishes => { return dishes.map(dish => dish.id ); })
+      .catch(error => { return Observable.of(error); });
   }
+  
 }
 
   //map operator,toma cada item, por cada uno solo extraer los id's y contruye un nuevo array de id's
