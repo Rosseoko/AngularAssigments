@@ -11,6 +11,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
+
+
 import { HttpModule } from '@angular/http';
 
 import 'hammerjs';
@@ -34,6 +38,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 @NgModule({  
@@ -46,7 +51,9 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective,
+    
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,8 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule 
+    HttpModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
     
   ],
   providers: [DishService,
